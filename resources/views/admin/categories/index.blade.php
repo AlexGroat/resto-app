@@ -8,6 +8,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
+            <div class="flex justify-end m-2 p-2">
+                <a href="{{ route('admin.categories.create') }}" class="px-2 py-2 bg-blue-600 hover:bg-blue-500 rounded-md text-white">New Category</a>
+            </div>
+
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

@@ -17,10 +17,10 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'admin'])->name('admin.')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('index');
-    Route::resource('/categories', CategoryController::class);
-    Route::resource('/menu', MenuController::class);
-    Route::resource('/tables', TableController::class);
-    Route::resource('/reservations', ReservationController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('menus', MenuController::class);
+    Route::resource('tables', TableController::class);
+    Route::resource('reservations', ReservationController::class);
 });
 
 require __DIR__ . '/auth.php';
