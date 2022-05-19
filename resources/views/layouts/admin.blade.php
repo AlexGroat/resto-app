@@ -31,10 +31,18 @@
                 </button>
             </div>
             <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
-                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('admin.categories.index') }}">Categories</a>
-                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg  hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('admin.menu.index') }}">Menu</a>
-                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg  hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('admin.tables.index') }}">Table</a>
-                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg  hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('admin.reservations.index') }}">Reservations</a>
+                <x-admin-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
+                    {{ __('Categories') }}
+                </x-admin-nav-link>
+                <x-admin-nav-link :href="route('admin.menu.index')" :active="request()->routeIs('admin.menus.index')">
+                    {{ __('Menu') }}
+                </x-admin-nav-link>
+                <x-admin-nav-link :href="route('admin.tables.index')" :active="request()->routeIs('admin.tables.index')">
+                    {{ __('Tables') }}
+                </x-admin-nav-link>
+                <x-admin-nav-link :href="route('admin.reservations.index')" :active="request()->routeIs('admin.reservations.index')">
+                    {{ __('Reservations') }}
+                </x-admin-nav-link>
                 <div @click.away="open = false" class="relative" x-data="{ open: false }">
                     <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                         <span>{{ Auth::user()->name}}</span>
@@ -57,7 +65,7 @@
                 </div>
             </nav>
         </div>
-        <main class="m-2 p-8">
+        <main class="m-2 p-8 w-full">
             {{ $slot }}
         </main>
     </div>
